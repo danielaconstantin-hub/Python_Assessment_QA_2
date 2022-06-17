@@ -32,7 +32,11 @@ import random
 
 
 def one(string):
-    return
+    word = ''
+    for i in range (len(string)):
+        word = word + string[i] + string[i] + string[i]
+        return word
+    
 
     # <QUESTION 2>
 
@@ -51,8 +55,13 @@ def one(string):
 
 
 def two(num):
-    return
-
+     for i in range (2, num):
+        if num % i == 0:
+            return False
+        else:
+            return True
+    
+print(two(5))
     # <QUESTION 3>
 
     # Write a function which takes an integer input, a, and returns the sum a+aa+aaa+aaaa.
@@ -69,7 +78,13 @@ def two(num):
 
 
 def three(a):
-    return
+    a_list = []
+    b = str()
+    for i in range(4):
+        b += str(a)
+        a_list.append(int(b))
+    return sum(a_list)
+    
 
     # <QUESTION 4>
 
@@ -99,7 +114,11 @@ def three(a):
 
 
 def four(string1, string2):
-    return
+    phrase = ""
+    for i in range (len(string1)):
+        phrase = phrase + string1[i] + string2[i]
+    return phrase
+    
 
     # <QUESTION 5>
 
@@ -117,7 +136,19 @@ def four(string1, string2):
 
 
 def five():
-    return
+    return(random.sample([i for i in range(100,201) if i%2==0], 5))
+
+print(five())
+
+def five1():
+    numlist = []
+    for i in range (100, 201):
+        if i % 2 == 0:
+            numlist = numlist + [i]
+
+    return random.sample(list(numlist), 5)
+
+print (five1())
 
     # <QUESTION 6>
 
@@ -137,7 +168,12 @@ def five():
 
 
 def six(string):
-    return
+    word = string.casefold()
+	if word.endswith('py'):
+		return True
+    else:
+	    return False
+    
 
     # <QUESTION 7>
 
@@ -162,7 +198,11 @@ def six(string):
 
 
 def seven(a, b, c):
-    return
+    num = [a, b, c]
+    num.sort()
+    if (num[1] - num[0]) == (num[2] - num[1]):
+        return True
+    return False
 
     # <QUESTION 8>
 
@@ -181,7 +221,12 @@ def seven(a, b, c):
 
 
 def eight(string, num):
-    return
+    word = string
+	for i in range(num):
+		middle = len(word)//2
+		word = word[:middle] + word[(middle + 1):]
+	return word
+    
 
     # <QUESTION 9>
 
@@ -200,7 +245,17 @@ def eight(string, num):
 
 def nine(string1, string2):
     # make sure string1 is the shortest of the two
-    return
+     s1 = 0
+    sorted_string1 = sorted(string1.lower())
+    sorted_string2 = sorted(string2.lower())
+
+    for char in sorted_string2:
+        if char in sorted_string1:
+            s1 += 1
+    if s1 >= len(string1) or s1 >= len(string2):
+        return True
+    else:
+        return False
 
     # <QUESTION 10>
 
@@ -219,4 +274,9 @@ def nine(string1, string2):
 
 
 def ten(a, b):
-    return
+    array = [[0 for aa in range(a)] for bb in range(b)]
+	for bb in range(b):
+		for aa in range(a):
+			array[bb][aa] = aa * bb
+	return array
+    
